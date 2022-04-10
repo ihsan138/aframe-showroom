@@ -1,0 +1,11 @@
+Model Information:
+* title:	Giotto-B Coffee Table
+* source:	https://sketchfab.com/3d-models/giotto-b-coffee-table-5801e322c3a84150be47f43cb483bc69
+* author:	Digital_MHC (https://sketchfab.com/Digital_MHC)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Giotto-B Coffee Table" (https://sketchfab.com/3d-models/giotto-b-coffee-table-5801e322c3a84150be47f43cb483bc69) by Digital_MHC (https://sketchfab.com/Digital_MHC) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
