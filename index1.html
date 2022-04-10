@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Game Store</title>
+    <meta name="Game Store" content="Game Store">
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
+   
+    <!-- Image link template to be reused. -->
+    <script id="link" type="text/html">
+      <a-entity class="link"
+        geometry="primitive: plane; height: 1; width: 1"
+        material="shader: flat; src: ${thumb}"
+        event-set__mouseenter="scale: 1.2 1.2 1"
+        event-set__mouseleave="scale: 1 1 1"
+        event-set__click="_target: #model; _delay: 300; foo"
+        proxy-event="event: click; to: #model; as: fade"
+        sound="on: click; src: #click-sound"></a-entity>
+    </script>
+  </head>
+  <body>
+    <script>
+      AFRAME.registerComponent("foo", {
+          init: function() {
+          const model = document.getElementById('model')
+          const nextButton = document.getElementById('card1')
+          const nextModel = () => {
+            // Need to remove gltf-component first due to AFrame regression: https://github.com/aframevr/aframe/issues/4341
+            model.removeAttribute('gltf-model')
+            // Switch to next model in the list
+            model.setAttribute('gltf-model', `#ps5`)
+            model.setAttribute('position', { x: 3.809, y: 2.000, z: -3.693 });
+            model.setAttribute('scale', {x: 3, y: 3, z: 3});
+
+          }
+          nextButton.onclick = nextModel // Switch to the next model when the button is pressed.
+        }
+      })
+
+      AFRAME.registerComponent("bar", {
+          init: function() {
+          const model = document.getElementById('model')
+          const nextButton = document.getElementById('card2')
+          const nextModel = () => {
+            // Need to remove gltf-component first due to AFrame regression: https://github.com/aframevr/aframe/issues/4341
+            model.removeAttribute('gltf-model')
+            // Switch to next model in the list
+            model.setAttribute('gltf-model', `#wii`)
+            model.setAttribute('position', { x: 3.625, y: 2.526, z: -3.558 });
+            model.setAttribute('scale', {x: 0.4, y: 0.4, z: 0.4});
+
+          }
+          nextButton.onclick = nextModel // Switch to the next model when the button is pressed.
+        }
+      })
+      
+      AFRAME.registerComponent("qaz", {
+          init: function() {
+          const model = document.getElementById('model')
+          const nextButton = document.getElementById('card3')
+          const nextModel = () => {
+            // Need to remove gltf-component first due to AFrame regression: https://github.com/aframevr/aframe/issues/4341
+            model.removeAttribute('gltf-model')
+            // Switch to next model in the list
+            model.setAttribute('gltf-model', `#xbox_one`)
+            model.setAttribute('position', { x: 3.701, y: 1.960, z: -3.680 });
+            model.setAttribute('scale', {x: 3.5, y: 3.5, z: 3.5});
+
+          }
+          nextButton.onclick = nextModel // Switch to the next model when the button is pressed.
+        }
+      })
+    </script>
+    <a-scene background="color: #ECECEC" renderer="colorManagement: true;">
+
+      <!-- ASSETS DEFINITION ---------------------------------------------------------------------------------------------------------------->
+      <a-assets>
+          <!-- Card selectors -->
+          <img id="ps5-thumb" crossorigin="anonymous" src="./assets/display_cards/ps5.png">
+          <img id="wii-thumb" crossorigin="anonymous" src="./assets/display_cards/wii.png">
+          <img id="xbox-one-thumb" crossorigin="anonymous" src="./assets/display_cards/xbox_one.png">  
+          
+          <!-- Products -->
+          <a-asset-item id="ps5" src="./assets/ps5/scene.gltf"></a-asset-item>
+          <a-asset-item id="wii" src="./assets/wii_console/scene.gltf"></a-asset-item>
+          <a-asset-item id="xbox_one" src="./assets/xbox_one_slim/scene.gltf"></a-asset-item>
+
+          <!-- Furniture -->
+          <a-asset-item id="round_table" src="./assets/round_table/scene.gltf"></a-asset-item>
+      </a-assets>
+
+
+      <!-- CONTENTS ---------------------------------------------------------------------------------------------------------------->
+
+      <!-- 360-degree image. -->
+      <!-- <a-sky id="image-360" radius="10" src="#city"
+             animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
+             animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky> -->
+
+      <!-- Image links. -->
+      <a-entity id="links" layout="type: line; margin: 1.5" position="2 1.5 -2">
+        <a-entity foo id="card1" template="src: #link" data-src="#ps5" data-thumb="#ps5-thumb"></a-entity>
+        <a-entity bar id="card2" template="src: #link" data-src="#wii" data-thumb="#wii-thumb"></a-entity>
+        <a-entity qaz id="card3" template="src: #link" data-src="#xbox_one" data-thumb="#xbox-one-thumb"></a-entity>
+      </a-entity>
+
+      <!-- CONSTANT -------------------------------------------------------------------------------------------------------------------------->
+      <!-- Camera controls -->
+      <a-entity position="5 3 7">
+        <a-entity camera look-controls wasd-controls>
+          <a-entity position="0 0 -2"
+                    geometry="primitive: ring; radiusInner: 0.05; radiusOuter: 0.1;"
+                    material="color: cyan; shader: flat"
+                    cursor="maxDistance: 30; fuse: true" >
+          </a-entity>
+        </a-entity>
+      </a-entity>
+
+      <!-- Product -->
+        <!-- Rotating objects -->
+        <a-entity id="model" position="3.809 2 -3.693" scale="3 3 3" gltf-model="#ps5" 
+          animation="property: rotation; from: 0 -30 0; to: 0 360 0; dur: 15000; easing: linear; loop: true;
+          pauseEvents: mousedown;
+          resumeEvents: mouseup;"
+          
+        ></a-entity>
+          
+      <!-- Furniture -->
+        <!-- Table   -->
+        <a-entity id="center_table" position="3.791 1.224 -3.757" scale="2 2 2" gltf-model="#round_table"></a-entity>
+
+      <!-- Floor -->
+      <a-box position="0 0 0" scale="15 1 15" height="0" side="back" open-ended="true" color="#4682B4"></a-box>
+
+      <!-- Lighting -->
+      <a-light type="directional" color="#fff" intensity="0.2" position="-1 2 1"></a-light>
+      <a-light type="ambient" color="#fff"></a-light>
+
+    </a-scene>
+  </body>
+</html>
