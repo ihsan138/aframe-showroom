@@ -1,0 +1,11 @@
+Model Information:
+* title:	Sci-Fi counter top
+* source:	https://sketchfab.com/3d-models/sci-fi-counter-top-13d1acd99a664350bea0c5eabea31afd
+* author:	Clums Paint&Prints (https://sketchfab.com/Callum.Lloyd)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Sci-Fi counter top" (https://sketchfab.com/3d-models/sci-fi-counter-top-13d1acd99a664350bea0c5eabea31afd) by Clums Paint&Prints (https://sketchfab.com/Callum.Lloyd) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

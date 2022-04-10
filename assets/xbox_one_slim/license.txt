@@ -1,0 +1,11 @@
+Model Information:
+* title:	Xbox One Slim
+* source:	https://sketchfab.com/3d-models/xbox-one-slim-f290a13fac3d4db883ffdd6ac00bdcc6
+* author:	exohay (https://sketchfab.com/exohay)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Xbox One Slim" (https://sketchfab.com/3d-models/xbox-one-slim-f290a13fac3d4db883ffdd6ac00bdcc6) by exohay (https://sketchfab.com/exohay) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
