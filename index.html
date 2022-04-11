@@ -21,7 +21,7 @@
                 event-set__mouseleave="scale: 1 1 1"
                 event-set__click="_target: #model; _delay: 300; foo"
                 proxy-event="event: click; to: #model; as: fade"
-                sound="on: click; src: #click-sound"></a-entity>
+                ></a-entity>
         </script>  
     </head>
     <body>
@@ -112,7 +112,7 @@
             <!-- Sky & Ground -->
             <a-sky height="2048" radius="30" src="#skyTexture" theta-length="90" width="2048" segments-height="5" segments-width="8"></a-sky>
             <a-plane src="#groundTexture" rotation="-90 0 0" position="0 -0.01 0" height="100" width="100"></a-plane>
-            <a-plane src="color:white" rotation="-90 0 0" position="0 0 0" height="6" width="6"></a-plane>
+            <a-plane src="" rotation="-90 0 0" position="0 0 0" height="6" width="6"></a-plane>
                 
             <!-- Store -->
                 <!-- Outer room -->
@@ -178,11 +178,8 @@
             <!-- Camera controls -->
             <a-entity position="0 1.7 7">
                 <a-entity camera look-controls wasd-controls>
-                <a-entity position="0 0 -1.5"
-                            geometry="primitive: ring; radiusInner: 0.05; radiusOuter: 0.1;"
-                            material="color: cyan; shader: flat"
-                            cursor="maxDistance: 30; fuse: true" >
-                </a-entity>
+                <a-cursor
+                  id="cursor" raycaster="objects: .link" fuse="true"></a-cursor>
                 </a-entity>
             </a-entity>
 
